@@ -14,7 +14,7 @@ int main() {
         }
     }
 
-    int ans = 0;
+    long long ans = 0;
     for (auto &[x, y] : m) {
         ans += y;
     }
