@@ -15,7 +15,7 @@ int main() {
     }
 
     int min_order = 1e5;
-    char ans;
+    string ans = "None";
 
     for (auto [c, x] : count) {
         int o = order[c];
