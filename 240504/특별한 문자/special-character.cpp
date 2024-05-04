@@ -9,7 +9,7 @@ int main() {
 
     for (int i = 0; i < s.length(); i++) {
         count[s[i]]++;
-        if (order.find(s[i]) != order.end()) {
+        if (order.find(s[i]) == order.end()) {
             order[s[i]] = i;
         }
     }
