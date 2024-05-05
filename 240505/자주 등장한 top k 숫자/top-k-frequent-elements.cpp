@@ -4,26 +4,20 @@ using namespace std;
 int main() {
     cin.tie(0); ios_base::sync_with_stdio(0);
 
-    int n, k;
-    int arr[10**5];
-    unordered_map<int, int> freq;
-    vector<pair<int, int>> v;
+    int n, k; cin >> n >> k;
+    set<pair<int, int>> s;
+    unordered_map<int, int> idx;
 
-    cin >> n >> k;
-
-    for(int i = 0; i < n; i++) {
-        cin >> arr[i];
-        freq[arr[i]]++;
+    for (int i = 0; i < n; i++) {
+        int cur; cin >> cur;
+        if (idx.find(cur) != idx.end()) {
+            s.erase({-idx[cur], -cur});
+        }
+        s.insert({-(++idx[cur]), -cur});
     }
-
-    for(auto it = freq.begin(); it != freq.end(); it++) {
-        v.push_back({it->second, it->first});
-    }
-
-    sort(v.begin(), b.end());
-
-    for(int i = (int) v.size() - 1; i >= (int) v.size() - k; i--) {
-        cout << v[i].second << " ";
+    auto it = s.begin();
+    for (int i = 0; i < k; i++) {
+        cout << -((*it++).second) << " ";
     }
 
     return 0;
