@@ -18,17 +18,17 @@ int main() {
     for (int i = 0; i < m; i++) {
         for (int j = i+1; j < m; j++) {
             for (int k = j+1; k < m; k++) {
-                unordered_set<string> a_tags;
+                unordered_set<int> a_tags;
                 for (int l = 0; l < n; l++) {
-                    string a_tag = a[l].substr(i, 1) + a[l].substr(j, 1) + a[l].substr(k, 1);
+                    int a_tag = (a[l][i] << 8) + (a[l][j] << 4) + a[l][k];
                     a_tags.insert(a_tag);
                     
                 }
 
-                string b_tag;
+                int b_tag;
                 bool valid = true;
                 for (int l = 0; l < n; l++) {
-                    b_tag = b[l].substr(i, 1) + b[l].substr(j, 1) + b[l].substr(k, 1); 
+                    b_tag = (b[l][i] << 8) + (b[l][j] << 4) + b[l][k];
                     if (a_tags.find(b_tag) != a_tags.end()) {
                         valid = false;
                         break;
