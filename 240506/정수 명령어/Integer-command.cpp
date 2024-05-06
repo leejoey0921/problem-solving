@@ -3,10 +3,10 @@ using namespace std;
 
 int main() {
     cin.tie(0); ios_base::sync_with_stdio(0);
-    set<int> s;
 
     int n; cin >> n;
     for (int i = 0; i < n; i++) {
+        set<int> s;
         int m; cin >> m;
         for (int j = 0; j < m; j++) {
             string cmd; cin >> cmd;
