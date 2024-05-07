@@ -4,11 +4,11 @@ using namespace std;
 int main() {
     cin.tie(0); ios_base::sync_with_stdio(0);
     int n, t; cin >> n >> t;
-    map<int, int> positions; // -final: initial
+    map<long long, long long> positions; // -final: initial
 
     for (int i; i < n; i++) {
-        int x, v; cin >> x >> v;
-        int fin = -(x + v*t);
+        long long x, v; cin >> x >> v;
+        long long fin = -(x + v*t);
         if (positions.find(fin) == positions.end() || positions[fin] > x) {
             positions[fin] = x;
         }
