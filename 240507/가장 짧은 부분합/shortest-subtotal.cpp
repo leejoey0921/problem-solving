@@ -11,7 +11,12 @@ int main() {
     }
 
     int sum = arr[0];
+    if (sum >= s) {
+        cout << 1;
+        return 0;
+    }
     int ans = 1e8;
+    
     for (int i; i < n; i++) {
         for (int j = 1; j < n && sum < s; j++) {
             sum += j;
