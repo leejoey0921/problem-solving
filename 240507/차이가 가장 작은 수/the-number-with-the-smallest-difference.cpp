@@ -9,20 +9,22 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         int x; cin >> x;
-
-        for (auto y : nums) {
-            diffs.insert(abs(x - y));
-        }
-
         nums.insert(x);
     }
 
-    auto ans = diffs.lower_bound(m);
+    long long ans = 1e10 + 1;
 
-    if (ans == diffs.end()) {
+    for (int x : nums) {
+        auto y = nums.lower_bound(x + m);
+        if (y != nums.end()) {
+            ans = min(ans, (long long) (*y - x));
+        }
+    }
+
+    if (ans == 1e10 + 1) {
         cout << -1;
     } else {
-        cout << *ans;
+        cout << ans;
     }
     return 0;
 }
