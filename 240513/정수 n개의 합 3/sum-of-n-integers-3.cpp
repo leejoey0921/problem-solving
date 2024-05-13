@@ -7,7 +7,6 @@ int main() {
     int n, k; cin >> n >> k;
 
     int s[n+1][n+1] = {};
-    int arr[n+1][n+1] = {};
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
@@ -38,8 +37,8 @@ int main() {
     }
 
     int ans = -1e8;
-    for (int i = k; i < n; i++) {
-        for (int j = k; j < n; j++) {
+    for (int i = k; i <= n; i++) {
+        for (int j = k; j <= n; j++) {
             ans = max(ans, s[i][j] - s[i-k][j] - s[i][j-k] + s[i-k][j-k]);
         }
     }
