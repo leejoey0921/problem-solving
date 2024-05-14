@@ -1,45 +1,34 @@
-#include <iostream>
-
-#define MAX_N 100000
-
+#include <bits/stdc++.h>
 using namespace std;
 
-int n, m;
-int arr[MAX_N];
+int main() {
+    cin.tie(0); ios_base::sync_with_stdio(0);
 
-int Find(int target) {
-    int left = 0, right = n - 1;
-    while (left <= right) {
-        int mid = (left + right) / 2;
-        if(arr[mid] == target)
-            return mid;
-        
-        if(arr[mid] > target)
-            right = mid - 1;
-        else
-            left = mid + 1;
+    int n, m; cin >> n >> m;
+    int a[n];
+
+    for (int i; i < n; i++) {
+        cin >> a[i];
     }
 
-    return -1;
-}
+    for (int i; i < m; i++) {
+        int t; cin >> t;
 
-int main() {
-    // 입력
-    cin >> n >> m;
-    for(int i = 0; i < n; i++)
-        cin >> arr[i];
-
-    for(int i = 0; i < m; i++) {
-        int x;
-        cin >> x;
-
-        // 이진탐색을 진행합니다.
-        int index = Find(x);
-
-        if(index >= 0)
-            cout << index + 1 << endl;
-        else
-            cout << -1 << endl;
+        int l = 0;
+        int r = n-1;
+        int ans = -1;
+        while (l <= r) {
+            int m = (l + r) / 2;
+            if (a[m] == t) {
+                ans = m + 1;
+                break;
+            } else if (a[m] < t) {
+                l = m + 1;
+            } else {
+                r = m - 1;
+            }
+        }
+        cout << ans << "\n";
     }
     return 0;
 }
