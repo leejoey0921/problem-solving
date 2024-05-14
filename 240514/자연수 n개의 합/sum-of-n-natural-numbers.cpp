@@ -1,14 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+typedef long long ll;
+
 int main() {
     cin.tie(0); ios_base::sync_with_stdio(0);
-    int s; cin >> s;
-    int l = 0; int r = s;
-    int ans = 0;
+    ll s; cin >> s;
+    ll l = 0; ll r = 1e10;
+    ll ans = 0;
     while (l <= r) {
-        int mid = (l + r) / 2;
-        int sum = mid * (mid + 1) / 2;
+        ll mid = (l + r) / 2;
+        ll sum = mid * (mid + 1) / 2;
         if (sum == s) {
             ans = mid;
             break;
