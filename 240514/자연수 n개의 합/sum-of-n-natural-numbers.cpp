@@ -15,7 +15,7 @@ int main() {
         } else if (sum < s) {
             ans = max(ans, mid);
             l = mid + 1;
-        } else if (sum) {
+        } else {
             r = mid - 1;
         }
     }
