@@ -12,6 +12,7 @@ int main() {
     for (int i; i < n; i++) {
         cin >> points[i];
     }
+    sort(points, points + n);
 
     while(m--) {
         ll s, e; cin >> s >> e;
