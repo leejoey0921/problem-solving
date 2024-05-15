@@ -30,12 +30,11 @@ int main() {
                 start = p;
             }
         }
-        // cout << l << " " << r << " " << mid << " " << count << " " << endl;
+
 
         if (count >= m) { // mid <= ans
-            ans = max(ans, mid);
-            // if (l == r - 1 && l == mid) break;
             l = mid + 1;
+            ans = max(ans, mid);
         } else { // mid > ans
             r = mid - 1;
         }
