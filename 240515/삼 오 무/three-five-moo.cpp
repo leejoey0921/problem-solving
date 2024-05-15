@@ -1,16 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+typedef long long ll;
+
 int main() {
     cin.tie(0); ios_base::sync_with_stdio(0);
 
-    int n; cin >> n;
+    ll n; cin >> n;
 
-    int l = 0; int r = 1e9;
+    ll l = 0; ll r = 2e9;
 
     while (l <= r) {
-        int mid = (l + r) / 2;
-        int cnt = mid - (mid/3) - (mid/5) + (mid/15);
+        ll mid = (l + r) / 2;
+        ll cnt = mid - (mid/3) - (mid/5) + (mid/15);
         if (cnt == n) {
             cout << mid;
             break;
