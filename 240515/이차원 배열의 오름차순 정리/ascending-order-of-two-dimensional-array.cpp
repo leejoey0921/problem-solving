@@ -13,22 +13,27 @@ int main() {
     // 3 6 9 12
     // 4 8 12 16
     //  1 2 2 3 3 4 4 4 6 6 8 8 9 12 12 16
+    // 15683
+    // 216513233
 
-    ll l = 0; ll r = 1e10;
+    ll l = 0; ll r = pow(n, 2);
     ll ans;
 
     while(l <= r) {
         ll mid = (l + r) / 2;
         ll cnt = 0;
+        ll exact_cnt = 0;
         for (ll i = 1; i <= n; i++) {
             cnt += min(n, mid / i);
+            if ((mid % i == 0) && (mid / i <= n)) exact_cnt++;
         }
+        // cout << mid << " " << cnt << " " << exact_cnt << endl;
 
         // cout << l << " " << r << " " << mid << " " << cnt << " " << endl;
-        if (cnt == k) {
+        if (cnt - exact_cnt + 1 <= k && k <= cnt) {
             ans = mid;
             break;
-        } else if (cnt > k) {
+        } else if (cnt - exact_cnt > k) {
             r = mid - 1;
         } else {
             l = mid + 1;
