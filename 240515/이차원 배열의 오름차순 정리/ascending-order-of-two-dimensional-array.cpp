@@ -7,15 +7,6 @@ int main() {
     cin.tie(0); ios_base::sync_with_stdio(0);
     ll n, k; cin >> n >> k;
 
-    // x -> x가 몇변째
-    // 1 2 3 4
-    // 2 4 6 8
-    // 3 6 9 12
-    // 4 8 12 16
-    //  1 2 2 3 3 4 4 4 6 6 8 8 9 12 12 16
-    // 15683
-    // 216513233
-
     ll l = 1; ll r = n * n;
     ll ans = n * n;
 
