@@ -1,18 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+typedef long long ll;
+
 int main() {
     cin.tie(0); ios_base::sync_with_stdio(0);
 
     int n, m; cin >> n >> m;
-    int points[n];
+    ll points[n];
 
     for (int i; i < n; i++) {
         cin >> points[i];
     }
 
     while(m--) {
-        int s, e; cin >> s >> e;
+        ll s, e; cin >> s >> e;
         
         // min idx of item larger or equal to s
         int min_idx;
