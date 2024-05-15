@@ -15,7 +15,7 @@ int main() {
         int cnt = 0;
         while (l <= r) {
             cnt++;
-            int mid = (l + r) / 2;
+            ll mid = (l + r) / 2;
             if (mid == i) {
                 min_cnt = min(min_cnt, cnt);
                 max_cnt = max(max_cnt, cnt);
