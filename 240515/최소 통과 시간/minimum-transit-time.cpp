@@ -6,13 +6,13 @@ typedef long long ll;
 int main() {
     cin.tie(0); ios_base::sync_with_stdio(0);
 
-    int n, m; cin >> n >> m;
+    ll n, m; cin >> n >> m;
 
-    int times[m];
+    ll times[m];
 
-    int max_time = 0;
+    ll max_time = 0;
     for (int i; i < m; i++) {
-        int t; cin >> t;
+        ll t; cin >> t;
         times[i] = t;
         max_time = max(max_time, t);
     }
@@ -23,8 +23,8 @@ int main() {
 
     while (l <= r) {
         ll mid = (l + r) / 2;
-        int passed = 0;
-        for (int t : times) {
+        ll passed = 0;
+        for (ll t : times) {
             passed += mid / t;
         }
         if (passed >= n) {
