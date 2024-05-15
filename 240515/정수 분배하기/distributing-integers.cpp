@@ -1,15 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int groups(int x, vector<int> v) {
-    int res = 0;
-    for (auto i : v) {
-        res += i / x;
-    }
-    // cout << x << " " << res << "\n"
-    return res;
-}
-
 int main() {
     cin.tie(0); ios_base::sync_with_stdio(0);
 
@@ -23,21 +14,24 @@ int main() {
 
     }
 
-    int l = 0; int r = 1e8;
-    int mid = (l + r) / 2;
-    
-    while (l < r) {
-        // cout << r << " " << l << " ";
-        mid = (l + r) / 2;
-        if (l == r - 1) break;
-        if (groups(mid, v) < m) { // mid > answer
+    int l = 0; int r = 1e5;
+
+	while (l < r) {
+		int mid = (l + r + 1) / 2;
+
+		int cnt = 0;
+		for (int i = 0; i < n; i++) {
+			cnt += v[i] / mid;
+		}
+
+		if (cnt < m) {
             r = mid - 1;
-        } else { // mid <= answer
+        } else {
             l = mid;
         }
-    }
+	}
 
-    cout << mid;
+    cout << r;
 
     return 0;
 }
