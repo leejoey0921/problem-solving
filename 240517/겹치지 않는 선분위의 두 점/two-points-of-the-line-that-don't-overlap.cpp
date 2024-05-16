@@ -24,14 +24,12 @@ int main() {
         ll cnt = 0;
         ll pos = -1e18;
         for (auto [s, e] : lines) {
-            // cout << s << " " << e << endl;
             ll real_s = max(s, pos + mid);
             if (real_s <= e) {
-                cnt++;
-                cnt += (e - real_s) / mid;
+                ll inc = (e - real_s) / mid;
+                cnt += 1 + inc;
+                pos = real_s + inc * mid;
             }
-
-            pos = e;
         }
 
         if (cnt >= n) { // mid <= ans
