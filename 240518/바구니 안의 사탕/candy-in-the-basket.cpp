@@ -17,7 +17,7 @@ int main() {
 
     int cnt = 0;
     int beg_pos = *positions.begin();
-    for (auto it = positions.begin(); (*it) <= beg_pos + 2*k; it++) {
+    for (auto it = positions.begin(); (*it <= beg_pos + 2*k) && (it != positions.end()); it++) {
         cnt += candies[*it];
     }
     
