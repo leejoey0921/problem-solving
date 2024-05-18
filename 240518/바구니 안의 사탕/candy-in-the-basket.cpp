@@ -27,7 +27,6 @@ int main() {
 
     int ans = cnt;
     while (r != positions.end()) {
-        cout << *r << endl;
         cnt += candies[*r];
         int cur_r_pos = *r;
         while(*l < cur_r_pos - 2*k) {
