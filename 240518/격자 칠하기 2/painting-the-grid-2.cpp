@@ -23,10 +23,13 @@ int main() {
         int mid = (l + r) / 2;
 
         int max_cnt = 0;
+        bool t_visited[n][n]; fill_n(&t_visited[0][0], n*n, false);
+
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                int cnt = 1;
+                if (t_visited[i][j]) continue;
                 bool visited[n][n]; fill_n(&visited[0][0], n*n, false);
+                int cnt = 1;
                 queue<pair<int, int>> q;
                 q.push({ i, j });
 
@@ -38,6 +41,7 @@ int main() {
                         if (abs(grid[x][y] - grid[next_x][next_y]) <= mid) {
                             q.push({ next_x, next_y });
                             visited[next_x][next_y] = true;
+                            t_visited[next_x][next_y] = true;
                             cnt++;
                         }
                     }
