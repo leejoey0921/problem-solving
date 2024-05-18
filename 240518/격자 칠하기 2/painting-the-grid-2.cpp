@@ -23,14 +23,15 @@ int main() {
         int mid = (l + r) / 2;
 
         int max_cnt = 0;
-        bool t_visited[n][n]; fill_n(&t_visited[0][0], n*n, false);
+        bool visited[n][n]; fill_n(&visited[0][0], n*n, false);
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (t_visited[i][j]) continue;
-                bool visited[n][n]; fill_n(&visited[0][0], n*n, false);
+                if (visited[i][j]) continue;
+                
                 int cnt = 1;
                 queue<pair<int, int>> q;
+                visited[i][j] = true;
                 q.push({ i, j });
 
                 while (!q.empty()) {
@@ -41,7 +42,6 @@ int main() {
                         if (abs(grid[x][y] - grid[next_x][next_y]) <= mid) {
                             q.push({ next_x, next_y });
                             visited[next_x][next_y] = true;
-                            t_visited[next_x][next_y] = true;
                             cnt++;
                         }
                     }
@@ -50,7 +50,7 @@ int main() {
             }
         }
 
-        if (max_cnt >= (n*n+1)/2) {
+        if (max_cnt * 2 >= n*n) {
             r = mid - 1;
             ans = min(ans, mid);
         } else {
