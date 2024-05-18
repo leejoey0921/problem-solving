@@ -17,9 +17,9 @@ int main() {
         int sum = arr[l] + arr[r];
         ans = min(abs(sum), ans);
         if (sum > 0) {
-            l++;
-        } else if (sum < 0) {
             r--;
+        } else if (sum < 0) {
+            l++;
         } else {
             break;
         }
