@@ -14,8 +14,8 @@ int main() {
     int l = 0; int r = n-1;
     int ans = 2e9;
     while (l < r) {
-        int sum = abs(arr[l] + arr[r]);
-        ans = min(sum, ans);
+        int sum = arr[l] + arr[r];
+        ans = min(abs(sum), ans);
         if (sum > 0) {
             l++;
         } else if (sum < 0) {
