@@ -22,7 +22,7 @@ int main() {
         cout << -1;
         return 0;
     }
-    // cout << (*l).first << " " << (*r).first << endl;
+
     int ans = (*r).first - (*l).first;
 
     while(l != r && r != coords.end()) {
@@ -34,7 +34,7 @@ int main() {
             r++;
         }
         if (r == coords.end()) break;
-        // cout << (*l).first << " " << (*r).first << endl;
+
         if ((*cur_y.rbegin()).first - (*cur_y.begin()).first >= d) {
             ans = min(ans, (*r).first - (*l).first);
         }
