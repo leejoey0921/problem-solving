@@ -13,7 +13,7 @@ int main() {
     set<pair<int, int>> cur_y;
 
     auto l = coords.begin(); auto r = coords.begin();
-    while (r != --coords.end()) {
+    while (r != coords.end()) {
         cur_y.insert({(*r).second, (*r).first});
         if ((*cur_y.rbegin()).first - (*cur_y.begin()).first >= d) break;
         r++;
@@ -28,11 +28,12 @@ int main() {
     while(l != r && r != coords.end()) {
         cur_y.erase({(*l).second, (*l).first});
         l++;
-        while (r != --coords.end()) {
+        while (r != coords.end()) {
             cur_y.insert({(*r).second, (*r).first});
             if ((*cur_y.rbegin()).first - (*cur_y.begin()).first >= d) break;
             r++;
         }
+        if (r == coords.end()) break;
         // cout << (*l).first << " " << (*r).first << endl;
         if ((*cur_y.rbegin()).first - (*cur_y.begin()).first >= d) {
             ans = min(ans, (*r).first - (*l).first);
@@ -40,7 +41,6 @@ int main() {
     }
 
     cout << ans;
-
 
     return 0;
 }
