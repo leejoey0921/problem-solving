@@ -1,38 +1,27 @@
-#include <iostream>
-#include <algorithm>
-#include <vector>
-#include <tuple>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-
-int n;
-vector<pair<int, int> > meetings;
-
-int ans;
-
 int main() {
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        int s, e;
-        cin >> s >> e;
-        meetings.push_back(make_pair(e, s));
+    cin.tie(0); ios_base::sync_with_stdio(0);
+
+    int n; cin >> n;
+    set<pair<int, int>> times; // (y, x)
+
+    for (int i = 0; i < n; i++) {
+        int s, e; cin >> s >> e;
+        times.insert({e, s});
     }
 
-
-    sort(meetings.begin(), meetings.end());
-
-    int last_e = -1;
-    for(int i = 0; i < n; i++) {
-        int s, e;
-        tie(e, s) = meetings[i];
-
-        if(last_e <= s) {
+    int cur_e = -1;
+    int ans = 0;
+    for (auto it : times) {
+        int s = it.second;
+        int e = it.first;
+        if (s >= cur_e) {
             ans++;
-            last_e = e;
+            cur_e = e;
         }
     }
-
     cout << ans;
     return 0;
 }
