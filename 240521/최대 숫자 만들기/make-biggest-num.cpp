@@ -14,14 +14,10 @@ int main() {
     }
 
     sort(V.begin(), V.end(), [&](string s1, string s2) {
-        if (s1.length() < s2.length()) {
-            return false;
-        } else {
-            return s1 < s2;
-        }
+        return s2 + s1 < s1 + s2;
     });
 
-    for (auto it = V.rbegin(); it != V.rend(); it++) {
+    for (auto it = V.begin(); it != V.end(); it++) {
         cout << *it;
     }
 
