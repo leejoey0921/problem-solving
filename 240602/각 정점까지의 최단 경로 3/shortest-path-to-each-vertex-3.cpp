@@ -40,7 +40,7 @@ int main() {
 
     for(int i = 2; i <= n; i++) {
         int d = (dist[i] == 1e9) ? -1 : dist[i];
-        cout << dist[i] << "\n";
+        cout << d << "\n";
     }
 
     return 0;
