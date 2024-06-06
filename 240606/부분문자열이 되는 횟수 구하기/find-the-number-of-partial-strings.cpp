@@ -12,8 +12,8 @@ int main() {
         order[i] = --x;
     }
 
-    int l = -1; int r = n;
-    int ans = 0;
+    int l = 0; int r = n;
+    int ans = -1;
 
     while (l <= r) {
         int mid = (l + r) / 2;
@@ -22,9 +22,8 @@ int main() {
         for (int i = 0; i < mid; i++) {
             tmp[order[i]] = ' ';
         }
-        // cout << mid << " " << tmp << endl;
-        int aIt = 0;
-        int bIt = 0;
+
+        int aIt = 0; int bIt = 0;
         while (aIt < n && bIt < B.length()) {
             if (tmp[aIt] == B[bIt]) {
                 bIt++;
