@@ -8,7 +8,7 @@ int main() {
 
     int n; cin >> n;
     vector<string> seqs;
-    set<pair<ll, string>> scores;
+    vector<pair<ll, string>> scores;
     for (int i = 0; i < n; i++) {
         string s; cin >> s;
         seqs.push_back(s);
@@ -22,8 +22,9 @@ int main() {
             else score -= cur;
             cur--;
         }
-        scores.insert({-score, seq});
+        scores.push_back({-score, seq});
     }
+    sort(scores.begin(), scores.end());
 
     string res_seq = "";
     for (auto [score, seq] : scores) {
