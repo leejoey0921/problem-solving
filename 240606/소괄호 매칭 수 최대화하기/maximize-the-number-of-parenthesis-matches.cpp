@@ -10,6 +10,7 @@ int main() {
     int n; cin >> n;
     vector<string> seqs;
     map<string, pii> cnts;
+    ll ans = 0;
 
     for (int i = 0; i < n; i++) {
         string s; cin >> s;
@@ -20,7 +21,10 @@ int main() {
         int open = 0; int close = 0;
         for (char c : s) {
             if (c == '(') open++;
-            else close++;
+            else {
+                close++;
+                ans += open;
+            }
         }
         cnts[s] = {open, close};
     }
@@ -35,16 +39,14 @@ int main() {
         }
     );
 
-    string res_seq = "";
+    int open_sum = 0;
     for (string s : seqs) {
-        res_seq += s;
-    }
+        int open = cnts[s].first;
+        int close = cnts[s].second;
 
-    ll open_cnt = 0;
-    ll ans = 0;
-    for (char c : res_seq) {
-        if (c == '(') open_cnt++;
-        else ans += open_cnt;
+        ans += (ll) open_sum * close;
+
+        open_sum += open;
     }
 
     cout << ans;   
