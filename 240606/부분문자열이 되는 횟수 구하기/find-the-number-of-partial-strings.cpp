@@ -12,7 +12,7 @@ int main() {
         order[i] = --x;
     }
 
-    int l = 0; int r = n;
+    int l = -1; int r = n;
     int ans = 0;
 
     while (l <= r) {
